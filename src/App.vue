@@ -7,7 +7,7 @@
 
 <script>
 import HelloWorld from './components/HelloWorld'
-
+import axios from 'axios'
 export default {
   name: 'App',
   components: {
@@ -30,8 +30,16 @@ export default {
       // .then(res => console.log(res))
       // .catch( err => console.log(err));
 
-      this.$axios.post('/apis/test/testToken.php',{ username:"hello",password:"123456"})
-      .then(data=>console.log(data))
+      // this.$axios.post('/apis/test/testToken.php',{ username:"hello",password:"123456"})
+      // .then(data=>console.log(data))
+      
+      let instant = axios.create({
+        baseURL:'/apis',
+        headers:{"Content-type":"application/json",
+         token:"f4c902c9ae5a2a9d8f84868ad064e706"}
+      instant.post('/test/testToken.php',{ username: 'mynae',password:'1111' }).then((data)=>{console.log(data)}
+      
+      
   }
 }
 </script>
